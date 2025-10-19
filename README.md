@@ -1,199 +1,166 @@
-# 💌 Digital Love Diary - Mobile App
+# 💕 Romantic Diary - Mobile App
 
-A beautiful, romantic mobile application built with **Ionic React** for sending love letters to your special someone.
+A beautiful React Native mobile application for couples to share their love story through private letters and messages.
 
 ## 🌟 Features
 
-- 📱 **Mobile-First Design** - Optimized for phones and tablets
-- 💕 **Beautiful UI** - Romantic design with heart animations
-- 🔐 **Secure Authentication** - Firebase Auth with email/password
-- 📧 **Email-Based Routing** - Send letters to specific email addresses
-- ⚡ **Real-Time Updates** - Letters appear instantly
-- 💾 **Cloud Storage** - All letters permanently saved in Firebase
-- 📖 **Letter Categories** - Daily thoughts, memories, future dreams, etc.
-- 👀 **Read/Unread Status** - Know when letters are read
-- 🔄 **Offline Support** - Works even without internet (with caching)
+### Core Features
+- **User Authentication** - Secure signup and login
+- **Room System** - Create or join private rooms with unique codes
+- **Letter Exchange** - Send and receive heartfelt letters
+- **Real-time Updates** - Instant notifications for new letters
+- **Photo Sharing** - Attach photos to your letters
+- **Voice Messages** - Record and send voice notes
+- **Categories** - Organize letters by type (Love, Daily, Memory, Special)
 
-## 🚀 Tech Stack
+### UI/UX Features
+- **Beautiful Design** - Modern, romantic interface
+- **Dark Mode** - Toggle between light and dark themes
+- **Responsive Layout** - Optimized for all screen sizes
+- **Smooth Animations** - Delightful user interactions
+- **Offline Support** - Read letters even without internet
 
-- **Frontend**: Ionic React + TypeScript
-- **Backend**: Firebase (Auth + Firestore)
-- **Mobile**: Capacitor for native app features
-- **Styling**: Ionic CSS + Custom themes
-- **Icons**: Ionicons
-
-## 📱 Mobile App Features
-
-- **Native Feel** - iOS-style interface with smooth animations
-- **Touch Optimized** - Perfect for mobile interactions
-- **Push Notifications** - Get notified of new letters (ready for implementation)
-- **Haptic Feedback** - Touch vibrations for better UX
-- **Status Bar** - Custom status bar styling
-- **Splash Screen** - Beautiful loading screen
-
-## 🛠️ Setup Instructions
+## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 16+ (recommended: 18+)
-- npm or yarn
-- Firebase account
+- Node.js (v16 or higher)
+- React Native CLI
+- Android Studio (for Android development)
+- Xcode (for iOS development, macOS only)
 
-### 1. Install Dependencies
-```bash
-npm install
-```
+### Installation
 
-### 2. Firebase Setup
-1. Create a Firebase project at [console.firebase.google.com](https://console.firebase.google.com)
-2. Enable Authentication (Email/Password)
-3. Create Firestore Database
-4. Copy your Firebase config to `src/services/firebase.ts`
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd romantic-diary
+   ```
 
-### 3. Run the App
-```bash
-# Development server
-npm start
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-# Build for production
-npm run build
+3. **Install iOS dependencies** (macOS only)
+   ```bash
+   cd ios && pod install && cd ..
+   ```
 
-# Run on device (after adding platform)
-npx cap run ios
-npx cap run android
-```
+4. **Run the app**
+   ```bash
+   # For Android
+   npm run android
+   
+   # For iOS
+   npm run ios
+   ```
 
-## 📱 Building for Mobile
+## 📱 App Structure
 
-### iOS
-```bash
-npx cap add ios
-npx cap run ios
-```
+### Screens
+- **Welcome Screen** - App introduction and navigation
+- **Authentication** - Login and signup screens
+- **Room Selection** - Create or join rooms
+- **Room Dashboard** - Main room interface
+- **Inbox** - View all received letters
+- **Compose** - Write and send letters
+- **Letter Detail** - Read individual letters
+- **Profile** - User settings and account management
 
-### Android
-```bash
-npx cap add android
-npx cap run android
-```
+### Components
+- **CustomButton** - Styled button component with variants
+- **CustomInput** - Form input with validation
+- **LoadingSpinner** - Loading indicator
+- **Navigation** - Stack navigation setup
 
-### PWA (Progressive Web App)
-```bash
-npm run build
-# Deploy the 'build' folder to any web server
-```
-
-## 🔥 Firebase Configuration
-
-Replace the placeholder config in `src/services/firebase.ts`:
-
-```typescript
-const firebaseConfig = {
-  apiKey: "your-api-key",
-  authDomain: "your-project.firebaseapp.com",
-  projectId: "your-project-id",
-  storageBucket: "your-project.appspot.com",
-  messagingSenderId: "123456789",
-  appId: "your-app-id"
-};
-```
-
-## 🔒 Security Rules
-
-Set up Firestore security rules:
-
-```javascript
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /users/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
-    }
-    
-    match /letters/{letterId} {
-      allow read: if request.auth != null && 
-        (resource.data.recipientId == request.auth.uid || 
-         resource.data.senderId == request.auth.uid);
-      allow create: if request.auth != null && 
-        request.auth.uid == request.resource.data.senderId;
-    }
-  }
-}
-```
-
-## 💡 Usage
-
-1. **Create Account** - Sign up with your email
-2. **Login** - Access your love diary
-3. **Write Letters** - Compose beautiful love letters
-4. **Send to Email** - Letters are routed by email address
-5. **Real-Time Updates** - Letters appear instantly
-6. **Read & Reply** - View letters and compose responses
-
-## 🎨 Customization
+## 🎨 Design System
 
 ### Colors
-Edit `src/theme/variables.css` to customize the app colors:
+- **Primary**: #6B46C1 (Purple)
+- **Secondary**: #EC4899 (Pink)
+- **Background**: #F8FAFC (Light Gray)
+- **Surface**: #FFFFFF (White)
+- **Text**: #1F2937 (Dark Gray)
 
-```css
-:root {
-  --ion-color-primary: #667eea;
-  --ion-color-secondary: #ff6b9d;
-  --ion-color-tertiary: #764ba2;
-}
+### Typography
+- **Headings**: Bold, 24-32px
+- **Body**: Regular, 16px
+- **Captions**: Medium, 12-14px
+
+## 🔧 Development
+
+### Project Structure
+```
+src/
+├── components/
+│   └── common/          # Reusable UI components
+├── screens/             # App screens
+├── theme/              # Colors and styling
+└── navigation/         # Navigation setup
 ```
 
-### Categories
-Add new letter categories in `src/pages/Compose.tsx`:
+### Key Dependencies
+- **React Native** - Mobile app framework
+- **React Navigation** - Screen navigation
+- **React Native Paper** - Material Design components
+- **React Native Vector Icons** - Icon library
+- **React Native Linear Gradient** - Gradient backgrounds
 
-```typescript
-const categories = [
-  { value: 'daily', label: 'Daily Thoughts', icon: '💭' },
-  { value: 'memory', label: 'Special Memory', icon: '💝' },
-  // Add more categories here
-];
-```
+## 📦 Building for Production
 
-## 📦 Deployment
-
-### Web (PWA)
+### Android APK
 ```bash
-npm run build
-# Deploy 'build' folder to Firebase Hosting, Vercel, or Netlify
+# Generate release APK
+cd android
+./gradlew assembleRelease
+
+# Generate signed bundle
+./gradlew bundleRelease
 ```
 
-### Mobile App Stores
-1. Build the app: `npm run build`
-2. Sync with Capacitor: `npx cap sync`
-3. Open in Xcode/Android Studio: `npx cap open ios/android`
-4. Follow platform-specific deployment guides
+### iOS IPA
+```bash
+# Open in Xcode
+open ios/RomanticDiary.xcworkspace
+
+# Archive and distribute through Xcode
+```
 
 ## 🔮 Future Features
 
-- 📸 Photo attachments in letters
-- 🎵 Voice messages
-- 📅 Anniversary reminders
-- 💌 Letter templates
-- 🌍 Multiple languages
-- 📊 Love statistics
-- 🎨 Custom themes
+### Planned Enhancements
+- **Firebase Integration** - Real-time database and authentication
+- **Push Notifications** - Instant letter notifications
+- **Photo Gallery** - Shared photo albums
+- **Anniversary Reminders** - Special date notifications
+- **Love Languages** - Relationship insights
+- **Backup & Sync** - Cloud data synchronization
+- **Voice Messages** - Audio letter attachments
+- **Themes** - Customizable app themes
 
-## 💕 Perfect Gift Features
-
-- **Romantic Design** - Beautiful heart animations and gradients
-- **Mobile Optimized** - Perfect for phones and tablets
-- **Private & Secure** - Only you two can access
-- **Permanent Storage** - Letters never get lost
-- **Real-Time** - Instant delivery and notifications
-- **Easy to Use** - Intuitive, touch-friendly interface
+### Technical Improvements
+- **Offline Support** - Full offline functionality
+- **Performance Optimization** - Faster loading times
+- **Security** - End-to-end encryption
+- **Analytics** - Usage insights
+- **Testing** - Comprehensive test coverage
 
 ## 🤝 Contributing
 
-This is a personal project, but feel free to fork and customize for your own love story!
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
 
 ## 📄 License
 
-MIT License - Feel free to use this for your own romantic projects! 💕
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 💝 Support
+
+For support, email support@romanticdiary.app or join our Discord community.
 
 ---
 
-**Made with 💕 for your special someone**
+Made with 💕 for couples who want to share their love story.
