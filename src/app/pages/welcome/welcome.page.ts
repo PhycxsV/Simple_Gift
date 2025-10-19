@@ -17,8 +17,5 @@ export class WelcomePage implements OnInit {
     this.router.navigate(['/signup']);
   }
 
-  goToLogin() {
-    this.router.navigate(['/login']);
-  }
 
 }

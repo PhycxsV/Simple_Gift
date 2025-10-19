@@ -8,7 +8,7 @@ import { AlertController, LoadingController } from '@ionic/angular';
   styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage implements OnInit {
-  formData: { [key: string]: string } = {
+  formData = {
     displayName: '',
     email: '',
     password: '',
@@ -25,7 +25,7 @@ export class SignupPage implements OnInit {
   ngOnInit() {
   }
 
-  updateFormData(field: string, value: string) {
+  updateFormData(field: keyof typeof this.formData, value: string) {
     this.formData[field] = value;
     if (this.errors[field]) {
       this.errors[field] = '';
@@ -101,8 +101,5 @@ export class SignupPage implements OnInit {
     }
   }
 
-  goToLogin() {
-    this.router.navigate(['/login']);
-  }
 
 }

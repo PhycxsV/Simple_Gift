@@ -1,5 +1,8 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/welcome"></ion-back-button>
+    </ion-buttons>
     <ion-title>Create Account</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,49 +17,53 @@
 
     <!-- Form -->
     <div class="form">
-      <ion-item class="custom-input" [class.error]="errors.displayName">
-        <ion-label position="stacked">Display Name</ion-label>
-        <ion-input 
-          type="text" 
-          [(ngModel)]="formData.displayName" 
-          placeholder="How should we call you?"
-          (ionInput)="updateFormData('displayName', $event.detail.value || '')">
-        </ion-input>
-      </ion-item>
-      <div class="error-message" *ngIf="errors.displayName">{{ errors.displayName }}</div>
+      <div class="input-group">
+        <ion-item class="custom-input" [class.error]="errors.displayName">
+          <ion-input 
+            type="text" 
+            [(ngModel)]="formData.displayName" 
+            placeholder="Display Name"
+            (ionInput)="updateFormData('displayName', $event.detail.value || '')">
+          </ion-input>
+        </ion-item>
+        <div class="error-message" *ngIf="errors.displayName">{{ errors.displayName }}</div>
+      </div>
 
-      <ion-item class="custom-input" [class.error]="errors.email">
-        <ion-label position="stacked">Email</ion-label>
-        <ion-input 
-          type="email" 
-          [(ngModel)]="formData.email" 
-          placeholder="Enter your email"
-          (ionInput)="updateFormData('email', $event.detail.value || '')">
-        </ion-input>
-      </ion-item>
-      <div class="error-message" *ngIf="errors.email">{{ errors.email }}</div>
+      <div class="input-group">
+        <ion-item class="custom-input" [class.error]="errors.email">
+          <ion-input 
+            type="email" 
+            [(ngModel)]="formData.email" 
+            placeholder="Email"
+            (ionInput)="updateFormData('email', $event.detail.value || '')">
+          </ion-input>
+        </ion-item>
+        <div class="error-message" *ngIf="errors.email">{{ errors.email }}</div>
+      </div>
 
-      <ion-item class="custom-input" [class.error]="errors.password">
-        <ion-label position="stacked">Password</ion-label>
-        <ion-input 
-          type="password" 
-          [(ngModel)]="formData.password" 
-          placeholder="Create a password"
-          (ionInput)="updateFormData('password', $event.detail.value || '')">
-        </ion-input>
-      </ion-item>
-      <div class="error-message" *ngIf="errors.password">{{ errors.password }}</div>
+      <div class="input-group">
+        <ion-item class="custom-input" [class.error]="errors.password">
+          <ion-input 
+            type="password" 
+            [(ngModel)]="formData.password" 
+            placeholder="Password"
+            (ionInput)="updateFormData('password', $event.detail.value || '')">
+          </ion-input>
+        </ion-item>
+        <div class="error-message" *ngIf="errors.password">{{ errors.password }}</div>
+      </div>
 
-      <ion-item class="custom-input" [class.error]="errors.confirmPassword">
-        <ion-label position="stacked">Confirm Password</ion-label>
-        <ion-input 
-          type="password" 
-          [(ngModel)]="formData.confirmPassword" 
-          placeholder="Confirm your password"
-          (ionInput)="updateFormData('confirmPassword', $event.detail.value || '')">
-        </ion-input>
-      </ion-item>
-      <div class="error-message" *ngIf="errors.confirmPassword">{{ errors.confirmPassword }}</div>
+      <div class="input-group">
+        <ion-item class="custom-input" [class.error]="errors.confirmPassword">
+          <ion-input 
+            type="password" 
+            [(ngModel)]="formData.confirmPassword" 
+            placeholder="Confirm Password"
+            (ionInput)="updateFormData('confirmPassword', $event.detail.value || '')">
+          </ion-input>
+        </ion-item>
+        <div class="error-message" *ngIf="errors.confirmPassword">{{ errors.confirmPassword }}</div>
+      </div>
 
       <ion-button 
         expand="block" 
@@ -66,20 +73,9 @@
       </ion-button>
     </div>
 
-    <!-- Terms -->
-    <div class="terms">
-      <p class="terms-text">
-        By creating an account, you agree to our 
-        <a href="#" class="terms-link">Terms of Service</a> and 
-        <a href="#" class="terms-link">Privacy Policy</a>
-      </p>
-    </div>
-
     <!-- Footer -->
     <div class="footer">
-      <p class="footer-text">Already have an account? 
-        <ion-button fill="clear" (click)="goToLogin()">Sign In</ion-button>
-      </p>
+      <p class="footer-text">Welcome to your love story! 💕</p>
     </div>
   </div>
 </ion-content>
