@@ -80,6 +80,10 @@ jspm_packages/
 www/
 dist/
 
+# Angular
+.angular/
+.cache/
+
 # Capacitor
 android/
 ios/

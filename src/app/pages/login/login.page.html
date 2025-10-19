@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Sign In</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="login-content">
+  <div class="login-container">
+    <!-- Header -->
+    <div class="header">
+      <h1 class="title">Welcome Back</h1>
+      <p class="subtitle">Sign in to continue your love story</p>
+    </div>
+
+    <!-- Form -->
+    <div class="form">
+      <ion-item class="custom-input" [class.error]="errors.email">
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input 
+          type="email" 
+          [(ngModel)]="email" 
+          placeholder="Enter your email"
+          (ionInput)="errors.email = ''">
+        </ion-input>
+      </ion-item>
+      <div class="error-message" *ngIf="errors.email">{{ errors.email }}</div>
+
+      <ion-item class="custom-input" [class.error]="errors.password">
+        <ion-label position="stacked">Password</ion-label>
+        <ion-input 
+          type="password" 
+          [(ngModel)]="password" 
+          placeholder="Enter your password"
+          (ionInput)="errors.password = ''">
+        </ion-input>
+      </ion-item>
+      <div class="error-message" *ngIf="errors.password">{{ errors.password }}</div>
+
+      <ion-button 
+        expand="block" 
+        fill="clear" 
+        class="forgot-password"
+        (click)="handleForgotPassword()">
+        Forgot Password?
+      </ion-button>
+
+      <ion-button 
+        expand="block" 
+        class="custom-button custom-button-primary"
+        (click)="handleLogin()">
+        Sign In
+      </ion-button>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p class="footer-text">Don't have an account? 
+        <ion-button fill="clear" (click)="goToSignup()">Sign Up</ion-button>
+      </p>
+    </div>
+  </div>
+</ion-content>

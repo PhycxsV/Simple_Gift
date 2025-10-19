@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Your Room</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="room-selection-content">
+  <div class="room-selection-container">
+    <!-- Header -->
+    <div class="header">
+      <h1 class="title">Your Room</h1>
+      <p class="subtitle">Create a new room or join an existing one</p>
+    </div>
+
+    <!-- Room Options -->
+    <div class="options-container">
+      <!-- Create Room Card -->
+      <ion-card class="option-card" (click)="handleCreateRoom()">
+        <ion-card-content>
+          <div class="card-icon">
+            <ion-icon name="add-circle" size="large" color="primary"></ion-icon>
+          </div>
+          <h2 class="card-title">Create New Room</h2>
+          <p class="card-description">
+            Start a new private space for you and your partner
+          </p>
+        </ion-card-content>
+      </ion-card>
+
+      <!-- Join Room Card -->
+      <ion-card class="option-card" (click)="handleJoinRoom()">
+        <ion-card-content>
+          <div class="card-icon">
+            <ion-icon name="log-in" size="large" color="secondary"></ion-icon>
+          </div>
+          <h2 class="card-title">Join Existing Room</h2>
+          <p class="card-description">
+            Enter a room code to join your partner's room
+          </p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!-- Logout Button -->
+    <ion-button 
+      expand="block" 
+      fill="clear" 
+      class="logout-button"
+      (click)="handleLogout()">
+      <ion-icon name="log-out" slot="start"></ion-icon>
+      Sign Out
+    </ion-button>
+  </div>
+</ion-content>
