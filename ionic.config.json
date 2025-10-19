@@ -1,0 +1,7 @@
+{
+  "name": "digital-love-diary",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
