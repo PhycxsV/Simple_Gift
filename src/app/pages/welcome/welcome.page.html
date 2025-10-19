@@ -1,0 +1,65 @@
+<ion-content class="welcome-content">
+  <div class="welcome-container">
+    <!-- Logo Section -->
+    <div class="logo-section">
+      <div class="logo-container">
+        <div class="logo">
+          <span class="logo-emoji">💕</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Title Section -->
+    <div class="title-section">
+      <h1 class="app-title">Romantic Diary</h1>
+      <p class="app-subtitle">Share your love story, one letter at a time</p>
+    </div>
+
+    <!-- Description Section -->
+    <div class="description-section">
+      <ion-card class="description-card">
+        <ion-card-content>
+          <p class="description-text">
+            Create a private space where you and your loved one can exchange
+            heartfelt letters, share memories, and build your love story
+            together.
+          </p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features-section">
+      <div class="feature-item">
+        <div class="feature-icon">💌</div>
+        <div class="feature-text">Send Letters</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🏠</div>
+        <div class="feature-text">Private Room</div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">📸</div>
+        <div class="feature-text">Share Photos</div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <ion-button 
+        expand="block" 
+        class="custom-button custom-button-secondary"
+        (click)="goToSignup()">
+        Get Started
+      </ion-button>
+      
+      <ion-button 
+        expand="block" 
+        fill="outline" 
+        class="custom-button custom-button-outline"
+        (click)="goToLogin()">
+        Already have an account?
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

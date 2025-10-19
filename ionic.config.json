@@ -1,0 +1,7 @@
+{
+  "name": "romantic-diary",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

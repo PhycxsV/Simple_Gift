@@ -1,0 +1,196 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+:root {
+  --ion-color-primary: #6B46C1;
+  --ion-color-primary-rgb: 107, 70, 193;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #5e3eaa;
+  --ion-color-primary-tint: #7b59c7;
+
+  --ion-color-secondary: #EC4899;
+  --ion-color-secondary-rgb: 236, 72, 153;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #d04087;
+  --ion-color-secondary-tint: #ee5aa3;
+
+  --ion-color-tertiary: #F97316;
+  --ion-color-tertiary-rgb: 249, 115, 22;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #db6513;
+  --ion-color-tertiary-tint: #fa812d;
+
+  --ion-color-success: #10B981;
+  --ion-color-success-rgb: 16, 185, 129;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #0ea371;
+  --ion-color-success-tint: #28c091;
+
+  --ion-color-warning: #F59E0B;
+  --ion-color-warning-rgb: 245, 158, 11;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #d88b0a;
+  --ion-color-warning-tint: #f6a824;
+
+  --ion-color-danger: #EF4444;
+  --ion-color-danger-rgb: 239, 68, 68;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #d23c3c;
+  --ion-color-danger-tint: #f15757;
+
+  --ion-color-light: #F8FAFC;
+  --ion-color-light-rgb: 248, 250, 252;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0, 0, 0;
+  --ion-color-light-shade: #dadcde;
+  --ion-color-light-tint: #f9fbfc;
+
+  --ion-color-medium: #6B7280;
+  --ion-color-medium-rgb: 107, 114, 128;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #5e646e;
+  --ion-color-medium-tint: #7a808c;
+
+  --ion-color-dark: #1F2937;
+  --ion-color-dark-rgb: 31, 41, 55;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #1b242f;
+  --ion-color-dark-tint: #353e4b;
+}
+
+/* Custom CSS Variables */
+:root {
+  --gradient-primary: linear-gradient(135deg, #6B46C1 0%, #EC4899 100%);
+  --gradient-secondary: linear-gradient(135deg, #EC4899 0%, #F97316 100%);
+  --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --shadow-heavy: 0 8px 32px rgba(0, 0, 0, 0.2);
+  --border-radius: 12px;
+  --border-radius-large: 16px;
+}
+
+/* Global Styles */
+ion-content {
+  --background: var(--ion-color-light);
+}
+
+ion-header {
+  --background: var(--ion-color-primary);
+  --color: white;
+}
+
+/* Custom Button Styles */
+.custom-button {
+  --border-radius: var(--border-radius);
+  --box-shadow: var(--shadow-light);
+  font-weight: 600;
+  text-transform: none;
+  height: 48px;
+}
+
+.custom-button-primary {
+  --background: var(--gradient-primary);
+  --color: white;
+}
+
+.custom-button-secondary {
+  --background: var(--gradient-secondary);
+  --color: white;
+}
+
+.custom-button-outline {
+  --background: transparent;
+  --color: var(--ion-color-primary);
+  --border-color: var(--ion-color-primary);
+  --border-width: 2px;
+}
+
+/* Custom Card Styles */
+.custom-card {
+  --background: white;
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--shadow-light);
+  margin: 16px;
+  padding: 20px;
+}
+
+/* Custom Input Styles */
+.custom-input {
+  --background: white;
+  --border-radius: var(--border-radius);
+  --border-color: #E5E7EB;
+  --border-width: 2px;
+  --border-style: solid;
+  --padding-start: 16px;
+  --padding-end: 16px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.custom-input:focus-within {
+  --border-color: var(--ion-color-primary);
+  --box-shadow: 0 0 0 3px rgba(107, 70, 193, 0.1);
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  --color: var(--ion-color-primary);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .custom-card {
+    margin: 12px;
+    padding: 16px;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ion-color-light: #1F2937;
+    --ion-color-light-rgb: 31, 41, 55;
+    --ion-color-light-contrast: #ffffff;
+    --ion-color-light-contrast-rgb: 255, 255, 255;
+    --ion-color-light-shade: #1b242f;
+    --ion-color-light-tint: #353e4b;
+  }
+  
+  .custom-card {
+    --background: #374151;
+  }
+  
+  .custom-input {
+    --background: #374151;
+    --color: white;
+  }
+}
